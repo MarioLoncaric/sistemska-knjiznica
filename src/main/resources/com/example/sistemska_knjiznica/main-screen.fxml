@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@style.css" fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemska_knjiznica.MainScreenController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Knjige">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#showBookSearchScreen" text="Pretraga" />
+                <MenuItem mnemonicParsing="false" onAction="#showBookInputScreen" text="Unos" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Članovi">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showMemberSearchScreen" text="Pretraga" />
+                  <MenuItem mnemonicParsing="false" onAction="#showMemberInputScreen" text="Unos" />
+              </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Posudbe">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#showLoanSearchScreen" text="Pretraga" />
+                  <MenuItem mnemonicParsing="false" onAction="#showLoanInputScreen" text="Unos" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Sustav">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#showHomeScreen" text="Početna" />
+                <MenuItem mnemonicParsing="false" onAction="#showChangeLogScreen" text="Povijest promjena" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

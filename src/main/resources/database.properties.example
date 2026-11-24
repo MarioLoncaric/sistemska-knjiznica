@@ -1,0 +1,3 @@
+db.url=jdbc:h2:./database/knjiznica;AUTO_SERVER=TRUE
+db.user=
+db.password=

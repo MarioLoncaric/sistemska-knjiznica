@@ -1,0 +1,130 @@
+
+.root {
+    -fx-background-color: #006442;
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+}
+
+.label {
+    -fx-text-fill: #F4F1E8;
+}
+
+.label.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D4AF37;
+}
+
+.text-field, .date-picker .text-field, .combo-box {
+    -fx-background-color: #F4F1E8;
+    -fx-text-fill: #001f14;
+    -fx-border-color: transparent;
+}
+
+
+.text-field:focused, .date-picker:focused, .combo-box:focused {
+    -fx-border-color: #D4AF37;
+    -fx-border-width: 2px;
+}
+
+.button {
+    -fx-background-color: #D4AF37;
+    -fx-text-fill: #001f14;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #eac54e;
+}
+
+.button:pressed {
+    -fx-background-color: #b3922d;
+}
+
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #D4AF37;
+}
+
+
+.table-view .column-header-background {
+    -fx-background-color: #001f14;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #000000;
+    -fx-font-weight: bold;
+}
+
+
+.table-row-cell {
+    -fx-background-color: #F4F1E8;
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #e9e6dd;
+}
+
+.table-view:focused .table-row-cell:selected,
+.table-view .table-row-cell:selected {
+    -fx-background-color: #D4AF37;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #001f14;
+}
+
+.menu-bar {
+    -fx-background-color: #001f14;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #D4AF37;
+}
+
+.menu-bar .menu-button:hover, .menu-bar .menu-button:focused {
+    -fx-background-color: #004225;
+}
+
+.context-menu {
+    -fx-background-color: #001f14;
+    -fx-border-color: #D4AF37;
+}
+
+.menu-item .label {
+    -fx-text-fill: #F4F1E8;
+}
+
+.menu-item:focused {
+    -fx-background-color: #D4AF37;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: #001f14;
+}
+/*================================================================================*/
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #D4AF37;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #000000;
+    -fx-font-size: 14px;
+}
+
+
+/* Hover preko dana */
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #D4AF37;
+}
+
+/* Odabrani dan */
+.date-picker-popup .selected {
+    -fx-background-color: #D4AF37;
+    -fx-text-fill: #001f14;
+    -fx-font-weight: bold;
+}
