@@ -1,6 +1,6 @@
 # Sistemska knjižnica
 
-Desktop aplikacija za vođenje knjižnice: knjige, članovi i posudbe. Napravljena u sklopu kolegija iz Jave na TVZ-u.
+Library management desktop app. Java course project at TVZ: JavaFX, Maven, H2, JDBC.
 
 ## Tehnologije
 
