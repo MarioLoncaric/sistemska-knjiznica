@@ -1,67 +1,67 @@
-# Sistemska knjižnica
+# Library system
 
-Desktop aplikacija za vođenje knjižnice – Java 25, JavaFX, H2
+A desktop app for running a library: books, members and loans. I built it for the Java course at TVZ (Zagreb University of Applied Sciences).
 
-## Tehnologije
+## Stack
 
-- Java 25 (JPMS modul)
+- Java 25 (JPMS module)
 - JavaFX 21 + FXML
-- H2 baza (embedded), JDBC
-- JSON-B (Yasson) za izvoz/uvoz u JSON, JAXB za XML zapis promjena
+- H2 (embedded) through JDBC
+- JSON-B (Yasson) for JSON export and import, JAXB for the XML change log
 - SLF4J + Logback
 - Maven, JUnit 5
 
-## Funkcionalnosti
+## What it does
 
-- prijava knjižničara (lozinke se spremaju kao PBKDF2 hash, nakon 3 neuspjela pokušaja prijava se zaključava na 30 sekundi)
-- unos i pretraga knjiga i članova, brisanje (desni klik na redak u tablici)
-- posudba i povrat knjige, s automatskim ažuriranjem broja dostupnih primjeraka u istoj transakciji
-- sigurnosna kopija: kopija tablice knjiga u bazi, izvoz svih podataka u JSON i binarnu datoteku (serijalizacija)
-- vraćanje podataka iz JSON kopije
-- povijest promjena: svaka akcija se zapisuje u `log.xml` i može se pregledati u aplikaciji
-- dugotrajne operacije (backup, učitavanje) izvršavaju se na virtualnim dretvama
+- Librarians log in. Passwords are stored as PBKDF2 hashes, and after 3 failed attempts the login locks for 30 seconds.
+- Librarians add and search books and members. To delete one, right-click its row in the table.
+- Lending and returning a book updates the number of available copies in the same transaction.
+- A backup copies the books table inside the database and exports all data to JSON and to a binary file (Java serialization).
+- Data can be restored from the JSON copy.
+- Every action is written to `log.xml`, and the app can show that history.
+- Long operations (backup, loading) run on virtual threads.
 
-## Pokretanje
+## Running it
 
-Potreban je JDK 25.
+You need JDK 25.
 
 ```bash
 ./mvnw javafx:run
 ```
 
-Na Windowsu: `mvnw.cmd javafx:run`
+On Windows: `mvnw.cmd javafx:run`
 
-Pri prvom pokretanju baza se kreira u mapi `database/` i puni s nekoliko primjera.
+On the first start the app creates the database in `database/` and fills it with a few sample records.
 
-Demo prijava: **admin** / **admin123**
+Demo login: **admin** / **admin123**
 
-## Konfiguracija baze
+## Database settings
 
-Postavke se čitaju iz `src/main/resources/database.properties`. Ako ta datoteka ne postoji, koristi se `database.properties.example` (lokalna H2 baza u mapi projekta). Za vlastite postavke kopiraj primjer:
+The app reads `src/main/resources/database.properties`. If that file is missing, it uses `database.properties.example` (a local H2 database in the project folder). For your own settings, copy the example:
 
 ```bash
 cp src/main/resources/database.properties.example src/main/resources/database.properties
 ```
 
-`database.properties` je u `.gitignore` i ne ide u repozitorij.
+`database.properties` is in `.gitignore`, so it stays out of the repository.
 
-## Struktura
+## Structure
 
 ```
 src/main/java
-├── com/example/sistemska_knjiznica   kontroleri i pokretanje aplikacije
+├── com/example/sistemska_knjiznica   controllers and app startup
 ├── entity                            model (Book, Member, Loan, Librarian...)
-├── repository                        pristup bazi
-├── utils                             baza, datoteke, validacija, poruke
-└── exceptions                        vlastite iznimke
+├── repository                        database access
+├── utils                             database, files, validation, messages
+└── exceptions                        custom exceptions
 src/main/resources
-├── schema.sql                        shema i početni podaci
-└── com/example/sistemska_knjiznica   FXML ekrani i CSS
+├── schema.sql                        schema and sample data
+└── com/example/sistemska_knjiznica   FXML screens and CSS
 ```
 
-Datoteke koje aplikacija stvara tijekom rada (`database/`, `backup/`, `logs/`, `log.xml`) nisu dio repozitorija.
+Files the app creates while it runs (`database/`, `backup/`, `logs/`, `log.xml`) are not in the repository.
 
-## Testovi
+## Tests
 
 ```bash
 ./mvnw test
