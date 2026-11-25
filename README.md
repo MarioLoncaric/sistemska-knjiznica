@@ -1,6 +1,6 @@
 # Sistemska knjižnica
 
-Library management desktop app. Java course project at TVZ: JavaFX, Maven, H2, JDBC.
+Desktop aplikacija za vođenje knjižnice – Java 25, JavaFX, H2
 
 ## Tehnologije
 
